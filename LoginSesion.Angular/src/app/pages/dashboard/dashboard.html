@@ -34,24 +34,6 @@
     </div>
   </section>
 
-  <section class="security-grid" *ngIf="perfil()">
-    <article>
-      <span>01</span>
-      <h2>Cookie HttpOnly</h2>
-      <p>La sesion se guarda del lado seguro del navegador.</p>
-    </article>
-    <article>
-      <span>02</span>
-      <h2>Guard activo</h2>
-      <p>El dashboard pregunta al backend antes de mostrarse.</p>
-    </article>
-    <article>
-      <span>03</span>
-      <h2>XSRF</h2>
-      <p>Las acciones sensibles viajan con token de proteccion.</p>
-    </article>
-  </section>
-
   <section class="session-panel" *ngIf="perfil()">
     <div>
       <h2>Resumen de la sesion</h2>

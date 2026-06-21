@@ -8,7 +8,6 @@
 
 .topbar,
 .dashboard-hero,
-.security-grid,
 .session-panel,
 .empty {
   max-width: 1120px;
@@ -76,7 +75,6 @@ button {
 
 .hero-copy,
 .identity-card,
-.security-grid article,
 .session-panel {
   border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 8px;
@@ -165,37 +163,11 @@ dd {
   font-weight: 900;
 }
 
-.security-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-  margin-bottom: 20px;
-}
-
-.security-grid article {
-  padding: 22px;
-  background: rgba(255, 255, 255, 0.92);
-}
-
-.security-grid span {
-  display: inline-grid;
-  place-items: center;
-  width: 42px;
-  height: 34px;
-  margin-bottom: 18px;
-  border-radius: 6px;
-  color: #0f513f;
-  background: #e7f7ef;
-  font-weight: 950;
-}
-
-.security-grid h2,
 .session-panel h2 {
   margin-bottom: 8px;
   color: #132033;
 }
 
-.security-grid p,
 .note {
   color: #667085;
   line-height: 1.55;
@@ -245,7 +217,6 @@ dd {
 
   .topbar,
   .dashboard-hero,
-  .security-grid,
   .session-panel {
     grid-template-columns: 1fr;
   }
