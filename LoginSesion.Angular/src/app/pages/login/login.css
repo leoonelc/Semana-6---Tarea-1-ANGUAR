@@ -1,0 +1,103 @@
+.login-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    linear-gradient(135deg, rgba(20, 82, 74, 0.92), rgba(42, 51, 76, 0.9)),
+    url('/assets/login-bg.svg') center/cover;
+}
+
+.login-panel {
+  width: min(100%, 430px);
+  padding: 32px;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 24px 70px rgba(16, 24, 40, 0.24);
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #18736c;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  color: #172033;
+  font-size: 2rem;
+}
+
+.intro {
+  margin: 10px 0 24px;
+  color: #5d6678;
+}
+
+form {
+  display: grid;
+  gap: 10px;
+}
+
+label {
+  color: #263044;
+  font-weight: 700;
+}
+
+input {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 12px;
+  border: 1px solid #c9d2df;
+  border-radius: 6px;
+  font: inherit;
+}
+
+input:focus {
+  border-color: #18736c;
+  outline: 3px solid rgba(24, 115, 108, 0.16);
+}
+
+.field-error {
+  min-height: 18px;
+  color: #b42318;
+}
+
+.alert {
+  padding: 12px;
+  border-radius: 6px;
+  color: #7a271a;
+  background: #fef3f2;
+}
+
+button {
+  min-height: 46px;
+  border: 0;
+  border-radius: 6px;
+  color: #ffffff;
+  background: #18736c;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:disabled {
+  background: #95aaa7;
+  cursor: not-allowed;
+}
+
+.demo-box {
+  display: grid;
+  gap: 4px;
+  margin: 20px 0 14px;
+  padding: 14px;
+  border-radius: 6px;
+  color: #344054;
+  background: #f4f7fb;
+}
+
+a {
+  color: #18736c;
+  font-weight: 700;
+}

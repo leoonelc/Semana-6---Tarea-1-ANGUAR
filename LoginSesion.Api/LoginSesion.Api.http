@@ -1,0 +1,41 @@
+@api = http://localhost:5222
+
+### Healthcheck
+GET {{api}}/
+
+### Obtener cookie XSRF antes de login/logout
+GET {{api}}/api/auth/csrf
+
+### Login correcto
+# En VS Code REST Client copie el valor de la cookie XSRF-TOKEN en X-XSRF-TOKEN.
+POST {{api}}/api/auth/login
+Content-Type: application/json
+X-XSRF-TOKEN: pegar-token-xsrf
+
+{
+  "usuario": "maria",
+  "password": "123456"
+}
+
+### Login incorrecto devuelve 401
+POST {{api}}/api/auth/login
+Content-Type: application/json
+X-XSRF-TOKEN: pegar-token-xsrf
+
+{
+  "usuario": "maria",
+  "password": "mala"
+}
+
+### Validar sesion con cookie de autenticacion
+GET {{api}}/api/auth/session
+
+### Ruta protegida
+GET {{api}}/api/perfil
+
+### Cerrar sesion
+POST {{api}}/api/auth/logout
+Content-Type: application/json
+X-XSRF-TOKEN: pegar-token-xsrf
+
+{}

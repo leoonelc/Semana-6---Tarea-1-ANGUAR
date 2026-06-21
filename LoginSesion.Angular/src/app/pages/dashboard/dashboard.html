@@ -1,0 +1,40 @@
+<main class="dashboard-shell">
+  <header>
+    <div>
+      <span class="status">Sesion validada por backend</span>
+      <h1>Bienvenido, {{ storedUserName() || perfil()?.nombre }}</h1>
+    </div>
+    <button type="button" (click)="logout()">Cerrar sesion</button>
+  </header>
+
+  <section class="content-grid" *ngIf="perfil(); else loading">
+    <article>
+      <h2>Perfil protegido</h2>
+      <dl>
+        <div>
+          <dt>Usuario</dt>
+          <dd>{{ perfil()?.usuario }}</dd>
+        </div>
+        <div>
+          <dt>Nombre</dt>
+          <dd>{{ perfil()?.nombre }}</dd>
+        </div>
+        <div>
+          <dt>Roles</dt>
+          <dd>{{ perfil()?.roles?.join(', ') }}</dd>
+        </div>
+      </dl>
+    </article>
+
+    <article>
+      <h2>Validacion</h2>
+      <p>{{ perfil()?.mensaje }}</p>
+      <p class="note">El nombre se guarda en localStorage, pero la sesion real depende de la cookie HttpOnly emitida por .NET.</p>
+    </article>
+  </section>
+
+  <ng-template #loading>
+    <p class="empty" *ngIf="!error()">Cargando informacion protegida...</p>
+    <p class="empty error" *ngIf="error()">{{ error() }}</p>
+  </ng-template>
+</main>

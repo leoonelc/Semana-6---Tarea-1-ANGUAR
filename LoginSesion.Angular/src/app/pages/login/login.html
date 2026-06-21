@@ -1,0 +1,49 @@
+<main class="login-shell">
+  <section class="login-panel" aria-labelledby="login-title">
+    <p class="eyebrow">Acceso seguro</p>
+    <h1 id="login-title">Iniciar sesion</h1>
+    <p class="intro">Use una cuenta demo para validar la sesion desde el backend.</p>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <label for="usuario">Usuario</label>
+      <input
+        id="usuario"
+        type="text"
+        formControlName="usuario"
+        autocomplete="username"
+        placeholder="maria"
+        aria-describedby="usuario-error"
+      />
+      <small id="usuario-error" class="field-error" *ngIf="form.controls.usuario.touched && form.controls.usuario.invalid">
+        Escriba al menos 3 caracteres.
+      </small>
+
+      <label for="password">Contrasena</label>
+      <input
+        id="password"
+        type="password"
+        formControlName="password"
+        autocomplete="current-password"
+        placeholder="123456"
+        aria-describedby="password-error"
+      />
+      <small id="password-error" class="field-error" *ngIf="form.controls.password.touched && form.controls.password.invalid">
+        La contrasena debe tener minimo 6 caracteres.
+      </small>
+
+      <div class="alert" role="alert" *ngIf="error()">{{ error() }}</div>
+
+      <button type="submit" [disabled]="form.invalid || loading()">
+        {{ loading() ? 'Validando...' : 'Ingresar' }}
+      </button>
+    </form>
+
+    <aside class="demo-box" aria-label="Credenciales de prueba">
+      <strong>Usuarios demo</strong>
+      <span>maria / 123456</span>
+      <span>admin / admin123</span>
+    </aside>
+
+    <a routerLink="/dashboard">Probar ruta protegida</a>
+  </section>
+</main>

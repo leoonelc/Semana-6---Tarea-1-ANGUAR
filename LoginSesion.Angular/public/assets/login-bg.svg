@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Patron abstracto de seguridad">
+  <rect width="1200" height="800" fill="#14524a"/>
+  <path d="M0 620c160-80 270-60 430-8 188 62 332 54 520-72 98-66 174-92 250-98v358H0z" fill="#2a334c" opacity=".72"/>
+  <path d="M80 178h240v150H80zM430 110h170v110H430zM710 180h320v190H710z" fill="#ffffff" opacity=".08"/>
+  <path d="M164 253h72m278-88h46m284 95h126" stroke="#ffffff" stroke-width="18" stroke-linecap="round" opacity=".16"/>
+  <circle cx="222" cy="540" r="76" fill="#5bb7a8" opacity=".34"/>
+  <circle cx="926" cy="560" r="104" fill="#f0c36a" opacity=".26"/>
+  <path d="M610 372l94 54v108l-94 54-94-54V426z" fill="none" stroke="#ffffff" stroke-width="16" opacity=".2"/>
+</svg>
