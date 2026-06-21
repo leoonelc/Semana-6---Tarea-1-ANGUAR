@@ -1,17 +1,22 @@
 <main class="dashboard-shell">
-  <header class="dashboard-header">
+  <header class="topbar">
+    <div class="brand-lock">S6</div>
     <div>
-      <span class="status">Sesion validada por backend</span>
-      <h1>Bienvenido, {{ storedUserName() || perfil()?.nombre }}</h1>
-      <p>Panel protegido por guard de Angular y cookie HttpOnly emitida por .NET.</p>
+      <strong>Panel seguro</strong>
+      <span>Sesion activa</span>
     </div>
     <button type="button" (click)="logout()">Cerrar sesion</button>
   </header>
 
-  <section class="content-grid" *ngIf="perfil(); else loading">
-    <article class="profile-card">
-      <span class="card-icon">ID</span>
-      <h2>Perfil protegido</h2>
+  <section class="dashboard-hero" *ngIf="perfil(); else loading">
+    <div class="hero-copy">
+      <span class="status">Validado por backend</span>
+      <h1>Hola, {{ storedUserName() || perfil()?.nombre }}</h1>
+      <p>{{ perfil()?.mensaje }}</p>
+    </div>
+
+    <div class="identity-card">
+      <span class="avatar">{{ (perfil()?.nombre || 'US').slice(0, 2).toUpperCase() }}</span>
       <dl>
         <div>
           <dt>Usuario</dt>
@@ -26,24 +31,37 @@
           <dd>{{ perfil()?.roles?.join(', ') }}</dd>
         </div>
       </dl>
-    </article>
+    </div>
+  </section>
 
-    <article class="validation-card">
-      <span class="card-icon">OK</span>
-      <h2>Validacion</h2>
-      <p>{{ perfil()?.mensaje }}</p>
-      <p class="note">El nombre se guarda en localStorage, pero la sesion real depende de la cookie HttpOnly emitida por .NET.</p>
+  <section class="security-grid" *ngIf="perfil()">
+    <article>
+      <span>01</span>
+      <h2>Cookie HttpOnly</h2>
+      <p>La sesion se guarda del lado seguro del navegador.</p>
     </article>
+    <article>
+      <span>02</span>
+      <h2>Guard activo</h2>
+      <p>El dashboard pregunta al backend antes de mostrarse.</p>
+    </article>
+    <article>
+      <span>03</span>
+      <h2>XSRF</h2>
+      <p>Las acciones sensibles viajan con token de proteccion.</p>
+    </article>
+  </section>
 
-    <article class="wide-card">
-      <h2>Estado de seguridad</h2>
-      <div class="security-grid">
-        <span>Cookie HttpOnly</span>
-        <span>XSRF activo</span>
-        <span>withCredentials</span>
-        <span>Ruta protegida</span>
-      </div>
-    </article>
+  <section class="session-panel" *ngIf="perfil()">
+    <div>
+      <h2>Resumen de la sesion</h2>
+      <p class="note">El nombre visible vive en localStorage; la autorizacion real sigue en .NET.</p>
+    </div>
+    <div class="session-list">
+      <span>Login correcto</span>
+      <span>Perfil protegido cargado</span>
+      <span>Logout disponible</span>
+    </div>
   </section>
 
   <ng-template #loading>

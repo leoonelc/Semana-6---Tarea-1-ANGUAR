@@ -1,22 +1,42 @@
 <main class="login-shell">
-  <section class="brand-panel" aria-label="Resumen de seguridad">
-    <div class="brand-mark">S6</div>
-    <p class="eyebrow">Semana 6 - Tarea 1</p>
-    <h1>Login Angular + .NET</h1>
-    <p>
-      Autenticacion con cookie HttpOnly, validacion de sesion desde backend y nombre de usuario en localStorage.
-    </p>
-    <div class="feature-list">
-      <span>Guard de ruta</span>
-      <span>Interceptor HTTP</span>
-      <span>Logout seguro</span>
+  <section class="brand-panel" aria-label="Presentacion">
+    <nav class="brand-nav">
+      <div class="brand-mark">S6</div>
+      <span>Login seguro</span>
+    </nav>
+
+    <div class="brand-copy">
+      <p class="eyebrow">Semana 6 - Tarea 1</p>
+      <h1>Portal de acceso con sesion backend</h1>
+      <p>Una experiencia limpia para iniciar sesion, validar credenciales y entrar al panel protegido.</p>
+    </div>
+
+    <div class="status-strip">
+      <span>Angular</span>
+      <span>.NET</span>
+      <span>Cookie HttpOnly</span>
     </div>
   </section>
 
   <section class="login-panel" aria-labelledby="login-title">
-    <p class="eyebrow">Acceso seguro</p>
-    <h2 id="login-title">Iniciar sesion</h2>
-    <p class="intro">Seleccione una cuenta demo o escriba sus credenciales.</p>
+    <div class="panel-header">
+      <p class="eyebrow">Acceso seguro</p>
+      <h2 id="login-title">Bienvenido</h2>
+      <p class="intro">Seleccione una cuenta demo o escriba sus datos.</p>
+    </div>
+
+    <div class="demo-grid" aria-label="Usuarios demo">
+      <button
+        type="button"
+        class="demo-account"
+        *ngFor="let account of demoAccounts"
+        (click)="fillDemo(account.usuario, account.password)"
+      >
+        <span>{{ account.badge }}</span>
+        <strong>{{ account.nombre }}</strong>
+        <small>{{ account.usuario }}</small>
+      </button>
+    </div>
 
     <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
       <label for="usuario">Usuario</label>
@@ -48,26 +68,10 @@
       <div class="alert" role="alert" *ngIf="error()">{{ error() }}</div>
 
       <button class="primary-button" type="submit" [disabled]="form.invalid || loading()">
-        {{ loading() ? 'Validando...' : 'Ingresar' }}
+        {{ loading() ? 'Validando...' : 'Ingresar al panel' }}
       </button>
     </form>
 
-    <aside class="demo-box" aria-label="Credenciales de prueba">
-      <strong>Usuarios demo</strong>
-      <div>
-        <span>maria</span>
-        <code>123456</code>
-      </div>
-      <div>
-        <span>admin</span>
-        <code>admin123</code>
-      </div>
-      <div>
-        <span>leonel</span>
-        <code>leonel123</code>
-      </div>
-    </aside>
-
-    <a class="protected-link" routerLink="/dashboard">Probar ruta protegida</a>
+    <a class="protected-link" routerLink="/dashboard">Ver ruta protegida</a>
   </section>
 </main>
