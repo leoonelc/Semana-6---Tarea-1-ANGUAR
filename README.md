@@ -1,4 +1,4 @@
-# Login simple con Angular y .NET
+# Semana-6---Tarea-1-ANGUAR
 
 Proyecto academico con autenticacion end-to-end entre Angular y ASP.NET Core. El frontend almacena solo el nombre visible del usuario en `localStorage`; la sesion real se valida en el backend mediante cookie HttpOnly.
 
