@@ -26,6 +26,7 @@ login-sesion-angular-dotnet/
 | --- | --- |
 | `maria` | `123456` |
 | `admin` | `admin123` |
+| `leonel` | `leonel123` |
 
 ## Ejecutar backend
 

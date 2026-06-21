@@ -1,14 +1,16 @@
 <main class="dashboard-shell">
-  <header>
+  <header class="dashboard-header">
     <div>
       <span class="status">Sesion validada por backend</span>
       <h1>Bienvenido, {{ storedUserName() || perfil()?.nombre }}</h1>
+      <p>Panel protegido por guard de Angular y cookie HttpOnly emitida por .NET.</p>
     </div>
     <button type="button" (click)="logout()">Cerrar sesion</button>
   </header>
 
   <section class="content-grid" *ngIf="perfil(); else loading">
-    <article>
+    <article class="profile-card">
+      <span class="card-icon">ID</span>
       <h2>Perfil protegido</h2>
       <dl>
         <div>
@@ -26,10 +28,21 @@
       </dl>
     </article>
 
-    <article>
+    <article class="validation-card">
+      <span class="card-icon">OK</span>
       <h2>Validacion</h2>
       <p>{{ perfil()?.mensaje }}</p>
       <p class="note">El nombre se guarda en localStorage, pero la sesion real depende de la cookie HttpOnly emitida por .NET.</p>
+    </article>
+
+    <article class="wide-card">
+      <h2>Estado de seguridad</h2>
+      <div class="security-grid">
+        <span>Cookie HttpOnly</span>
+        <span>XSRF activo</span>
+        <span>withCredentials</span>
+        <span>Ruta protegida</span>
+      </div>
     </article>
   </section>
 

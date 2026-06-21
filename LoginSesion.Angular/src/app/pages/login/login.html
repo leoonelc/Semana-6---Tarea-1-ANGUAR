@@ -1,8 +1,22 @@
 <main class="login-shell">
+  <section class="brand-panel" aria-label="Resumen de seguridad">
+    <div class="brand-mark">S6</div>
+    <p class="eyebrow">Semana 6 - Tarea 1</p>
+    <h1>Login Angular + .NET</h1>
+    <p>
+      Autenticacion con cookie HttpOnly, validacion de sesion desde backend y nombre de usuario en localStorage.
+    </p>
+    <div class="feature-list">
+      <span>Guard de ruta</span>
+      <span>Interceptor HTTP</span>
+      <span>Logout seguro</span>
+    </div>
+  </section>
+
   <section class="login-panel" aria-labelledby="login-title">
     <p class="eyebrow">Acceso seguro</p>
-    <h1 id="login-title">Iniciar sesion</h1>
-    <p class="intro">Use una cuenta demo para validar la sesion desde el backend.</p>
+    <h2 id="login-title">Iniciar sesion</h2>
+    <p class="intro">Seleccione una cuenta demo o escriba sus credenciales.</p>
 
     <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
       <label for="usuario">Usuario</label>
@@ -33,17 +47,27 @@
 
       <div class="alert" role="alert" *ngIf="error()">{{ error() }}</div>
 
-      <button type="submit" [disabled]="form.invalid || loading()">
+      <button class="primary-button" type="submit" [disabled]="form.invalid || loading()">
         {{ loading() ? 'Validando...' : 'Ingresar' }}
       </button>
     </form>
 
     <aside class="demo-box" aria-label="Credenciales de prueba">
       <strong>Usuarios demo</strong>
-      <span>maria / 123456</span>
-      <span>admin / admin123</span>
+      <div>
+        <span>maria</span>
+        <code>123456</code>
+      </div>
+      <div>
+        <span>admin</span>
+        <code>admin123</code>
+      </div>
+      <div>
+        <span>leonel</span>
+        <code>leonel123</code>
+      </div>
     </aside>
 
-    <a routerLink="/dashboard">Probar ruta protegida</a>
+    <a class="protected-link" routerLink="/dashboard">Probar ruta protegida</a>
   </section>
 </main>

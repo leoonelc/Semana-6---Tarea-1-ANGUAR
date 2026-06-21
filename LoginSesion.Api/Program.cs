@@ -67,7 +67,8 @@ app.UseAuthorization();
 var users = new Dictionary<string, DemoUser>(StringComparer.OrdinalIgnoreCase)
 {
     ["maria"] = new("maria", "Maria Camila", "123456", ["Usuario"]),
-    ["admin"] = new("admin", "Administrador", "admin123", ["Administrador", "Usuario"])
+    ["admin"] = new("admin", "Administrador", "admin123", ["Administrador", "Usuario"]),
+    ["leonel"] = new("leonel", "Leonel Castillo", "leonel123", ["Usuario"])
 };
 
 app.MapGet("/", () => Results.Ok(new { app = "LoginSesion.Api", status = "ok" }));
